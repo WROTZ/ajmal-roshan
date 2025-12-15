@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color palette and tokens */
+:root {
+    --marine-900: #00243a;
+    --marine-700: #003366;
+    --marine-600: #0a4d8c;
+    --accent-500: #ff6b6b;
+    --accent-300: #ffd6d6;
+    --teal-500: #0fb9b1;
+    --muted: #6b7280;
+    --glass: rgba(255,255,255,0.06);
+}
+
+/* =========================
+    GLOBAL STYLES
+   ========================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+/* Typography helpers */
+.site-title { font-family: Poppins, Inter, system-ui; }
+.subtitle { color: rgba(255,255,255,0.9); }
+
+/* Hero background using brand colors */
+.hero-bg {
+    background: linear-gradient(135deg,var(--marine-700) 0%,var(--marine-600) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #ffffff;
+    color: var(--marine-700);
+    padding: .6rem 1.1rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(3,51,102,0.12);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(3,51,102,0.14); }
+
+.btn-accent {
+    background: linear-gradient(90deg,var(--teal-500),var(--accent-500));
+    color: white;
+    padding: .6rem 1rem;
+    border-radius: 10px;
+    font-weight:700;
+    box-shadow: 0 10px 30px rgba(15,185,177,0.12);
+}
+.btn-accent:active{transform:translateY(1px)}
+
+/* Card styles for feature blocks */
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 30px rgba(3,51,102,0.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(3,51,102,0.10); }
+.feature-icon { width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:linear-gradient(180deg,#0a4d8c,#003366); color:#fff; margin-bottom: .6rem; }
+
+/* Responsive container */
+.container { max-width: 1100px; margin-inline:auto; padding-left:1rem; padding-right:1rem; }
+
+/* subtle section headings */
+.section-title { font-size:1.25rem; font-weight:600; margin-bottom: .75rem; }
+.section-sub { color: #6b7280; margin-bottom: 1.25rem; }
+
+/* small utility */
+.muted { color: #94a3b8; }
+
+/* Testimonials */
+.testimonials { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); padding: 4rem 0; }
+.testimonial { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 8px 20px rgba(3,51,102,0.06); }
+
+/* subtle animations */
+@keyframes floatUp { from { transform: translateY(8px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+.fade-in { animation: floatUp .6s ease both }
+
+/* colorful accents for features */
+.feat-accent-1 .feature-icon { background: linear-gradient(90deg,var(--teal-500),var(--marine-600)); }
+.feat-accent-2 .feature-icon { background: linear-gradient(90deg,var(--accent-500),#ff9a76); }
+.feat-accent-3 .feature-icon { background: linear-gradient(90deg,#6b8cff,#3ad0ff); }
+
+/* Navbar tweaks */
+.nav-link { color: rgba(255,255,255,0.92); margin-left: .9rem; font-weight:500; }
+.nav-link:hover { text-decoration: underline; color: #ffffff; }
+
+/* Footer */
+.site-footer { background: #042536; color: rgba(255,255,255,0.85); padding: 2rem 1rem; }
+.site-footer a { color: #9fd3ff; }
+
+/* =========================
+    PRINT-FRIENDLY STYLES
+   ========================= */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    h1, h2, h3 {
+        color: black;
+    }
+}
+
+/* Fallback utilities for custom brand colors (ensures classes exist even
+   if Tailwind purging/config issues remove them) */
+.bg-marine { background-color: #003366; }
+.bg-marineLight { background-color: #0a4d8c; }
+.hover\:bg-marineLight:hover { background-color: #0a4d8c; }
+
