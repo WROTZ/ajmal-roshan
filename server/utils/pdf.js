@@ -1,7 +1,8 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 
 export const generatePDF = async (html) => {
   const browser = await puppeteer.launch({
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
@@ -16,4 +17,3 @@ export const generatePDF = async (html) => {
   await browser.close();
   return pdf;
 };
-;
